@@ -21,7 +21,7 @@ import {
   Video,
   Settings
 } from 'lucide-react';
-import instructor from "./assets/instructor.png";
+import instructor from "./assets/instructor.jpg";
 
 // --- Components ---
 
