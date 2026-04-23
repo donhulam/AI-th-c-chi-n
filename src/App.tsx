@@ -5,27 +5,28 @@
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { 
-  Check, 
-  Menu, 
-  Plus, 
-  MessageSquare, 
-  Clock, 
-  Globe, 
-  Zap, 
-  ShieldCheck, 
-  ChevronRight, 
+import {
+  Check,
+  Menu,
+  Plus,
+  MessageSquare,
+  Clock,
+  Globe,
+  Zap,
+  ShieldCheck,
+  ChevronRight,
   X,
   Target,
   Users,
   Video,
   Settings
 } from 'lucide-react';
+import instructor from "./assets/instructor.png";
 
 // --- Components ---
 
 const SectionHeader = ({ label, title, desc, centered = true }: { label: string, title: string, desc?: string, centered?: boolean }) => (
-  <motion.div 
+  <motion.div
     initial={{ opacity: 0, y: 20 }}
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true }}
@@ -40,13 +41,13 @@ const SectionHeader = ({ label, title, desc, centered = true }: { label: string,
 const ModuleItem = ({ title, detail }: { title: string, detail: string }) => {
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <div 
+    <div
       className={`border border-border-subtle rounded-xl p-5 mb-3 cursor-pointer transition-all bg-bg-card/50 hover:border-lime/30 ${isOpen ? 'border-lime/20' : ''}`}
       onClick={() => setIsOpen(!isOpen)}
     >
       <div className="flex justify-between items-center gap-4">
         <h4 className="text-sm font-semibold">{title}</h4>
-        <motion.div 
+        <motion.div
           animate={{ rotate: isOpen ? 45 : 0 }}
           className="text-lime flex-shrink-0"
         >
@@ -55,7 +56,7 @@ const ModuleItem = ({ title, detail }: { title: string, detail: string }) => {
       </div>
       <AnimatePresence>
         {isOpen && (
-          <motion.div 
+          <motion.div
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
@@ -73,12 +74,12 @@ const FAQItem = ({ question, answer }: { question: string, answer: string }) => 
   const [isOpen, setIsOpen] = useState(false);
   return (
     <div className="border-b border-border-subtle">
-      <button 
+      <button
         className="w-full text-left py-6 flex justify-between items-center gap-4 group"
         onClick={() => setIsOpen(!isOpen)}
       >
         <span className="text-base font-semibold group-hover:text-lime transition-colors">{question}</span>
-        <motion.div 
+        <motion.div
           animate={{ rotate: isOpen ? 45 : 0 }}
           className="text-lime flex-shrink-0"
         >
@@ -87,7 +88,7 @@ const FAQItem = ({ question, answer }: { question: string, answer: string }) => 
       </button>
       <AnimatePresence>
         {isOpen && (
-          <motion.div 
+          <motion.div
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
@@ -189,19 +190,19 @@ export default function App() {
       <nav className="fixed top-0 left-0 right-0 z-50 border-b border-white/5 bg-black/60 backdrop-blur-xl">
         <div className="container mx-auto px-6 py-4 flex items-center justify-between">
           <div className="text-xl font-extrabold tracking-tighter text-lime uppercase">AI FOR EVERY ONE</div>
-          
+
           <div className="hidden md:flex items-center gap-10">
             {['Khóa học', 'Chương trình', 'Giảng viên', 'Học phí'].map((item) => (
-              <a 
-                key={item} 
-                href={`#${item.toLowerCase().replace(' ', '-')}`} 
+              <a
+                key={item}
+                href={`#${item.toLowerCase().replace(' ', '-')}`}
                 className="text-sm font-medium text-gray-400 hover:text-white transition-colors"
               >
                 {item}
               </a>
             ))}
-            <a 
-              href="https://zalo.me/0913368505" 
+            <a
+              href="https://zalo.me/0913368505"
               className="px-6 py-2 bg-lime text-black font-bold text-sm rounded-lg hover:bg-lime-hover transition-all transform hover:scale-105"
             >
               Đăng ký ngay
@@ -216,7 +217,7 @@ export default function App() {
         {/* Mobile Menu */}
         <AnimatePresence>
           {mobileMenuOpen && (
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
@@ -236,10 +237,10 @@ export default function App() {
         <div className="absolute top-[-10%] right-[-5%] w-[600px] h-[600px] bg-lime/10 rounded-full blur-[120px] pointer-events-none" />
         <div className="absolute bottom-[5%] left-[-10%] w-[400px] h-[400px] bg-lime/5 rounded-full blur-[100px] pointer-events-none" />
         <div className="absolute inset-0 grid-pattern pointer-events-none opacity-40" />
-        
+
         <div className="container mx-auto px-6 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               className="inline-flex items-center gap-2 px-4 py-2 border border-border-subtle bg-white/5 backdrop-blur-md rounded-full mb-8"
@@ -248,7 +249,7 @@ export default function App() {
               <span className="text-xs font-bold tracking-wide text-gray-300">Giảng viên với 30+ năm kinh nghiệm CNTT</span>
             </motion.div>
 
-            <motion.h1 
+            <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
@@ -258,7 +259,7 @@ export default function App() {
               <span className="text-gray-400">Không Cần Biết Lập Trình</span>
             </motion.h1>
 
-            <motion.p 
+            <motion.p
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
@@ -267,7 +268,7 @@ export default function App() {
               3 khóa học từ nền tảng đến chuyên sâu, giúp bạn biến AI thành trợ lý đắc lực cho công việc, sáng tạo nội dung và xây dựng hệ thống tự vận hành.
             </motion.p>
 
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
@@ -288,7 +289,7 @@ export default function App() {
               </div>
             </motion.div>
 
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5 }}
@@ -313,8 +314,8 @@ export default function App() {
       {/* --- Pain Points --- */}
       <section className="py-24 bg-bg-secondary">
         <div className="container mx-auto px-6">
-          <SectionHeader 
-            label="Thách thức" 
+          <SectionHeader
+            label="Thách thức"
             title="AI Đang Phổ Biến, Nhưng Bạn Có Thực Sự Làm Chủ?"
             desc="Hầu hết mọi người đang sử dụng AI sai cách, dẫn đến lãng phí thời gian và kết quả không như mong đợi."
           />
@@ -326,7 +327,7 @@ export default function App() {
               { icon: Zap, title: "Sợ bị tụt hậu", desc: "Đồng nghiệp đang tăng tốc 5-10 lần, bạn vẫn loay hoay với công cụ." },
               { icon: ShieldCheck, title: "Nghĩ AI rất khó", desc: "Bạn tin rằng cần biết Code để dùng AI chuyên nghiệp. Sai rồi!" }
             ].map((card, idx) => (
-              <motion.div 
+              <motion.div
                 key={idx}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -349,40 +350,40 @@ export default function App() {
       {/* --- Courses Grid --- */}
       <section id="courses" className="py-24">
         <div className="container mx-auto px-6">
-          <SectionHeader 
-            label="Khóa học" 
+          <SectionHeader
+            label="Khóa học"
             title="Lộ Trình Trở Thành Master AI"
             desc="3 khóa học độc lập giúp bạn làm chủ mọi khía cạnh của Generative AI."
           />
 
           <div className="grid lg:grid-cols-3 gap-8">
             {[
-              { 
-                tag: "KHÓA 1 — NỀN TẢNG", 
-                title: "Kỹ Thuật Giao Tiếp Với AI", 
+              {
+                tag: "KHÓA 1 — NỀN TẢNG",
+                title: "Kỹ Thuật Giao Tiếp Với AI",
                 tagline: "Người dùng → Prompt Professional",
                 features: ["Làm chủ ChatGPT, Claude, Gemini", "Thiết lập Trợ lý ảo cá nhân hóa", "Prompting nâng cao & Meta-Prompt"],
                 price: "699.000đ",
                 oldPrice: "3.000.000đ"
               },
-              { 
-                tag: "KHÓA 2 — SÁNG TẠO", 
-                title: "Phim Hoạt Hình AI", 
+              {
+                tag: "KHÓA 2 — SÁNG TẠO",
+                title: "Phim Hoạt Hình AI",
                 tagline: "Ý tưởng → Tác phẩm hoàn chỉnh",
                 features: ["Storyboard & Kịch bản bằng AI", "Tạo nhân vật & bối cảnh nhất quán", "Animation, Lồng tiếng & Dựng phim"],
                 price: "1.199.000đ",
                 oldPrice: "5.000.000đ"
               },
-              { 
-                tag: "KHÓA 3 — CHUYÊN SÂU", 
-                title: "Agentic AI System", 
+              {
+                tag: "KHÓA 3 — CHUYÊN SÂU",
+                title: "Agentic AI System",
                 tagline: "Kiến trúc sư hệ thống AI Agent",
                 features: ["Workflow Automation (No-code)", "Xây dựng AI Agent có tư duy", "Vận hành Multi-Agent chéo phòng ban"],
                 price: "2.999.000đ",
                 oldPrice: "10.000.000đ"
               }
             ].map((course, idx) => (
-              <motion.div 
+              <motion.div
                 key={idx}
                 initial={{ opacity: 0, scale: 0.95 }}
                 whileInView={{ opacity: 1, scale: 1 }}
@@ -393,7 +394,7 @@ export default function App() {
                 <span className="inline-block px-3 py-1 bg-lime/10 text-lime text-[10px] font-bold rounded-full mb-6 border border-lime/20">{course.tag}</span>
                 <h3 className="text-2xl font-bold mb-1">{course.title}</h3>
                 <p className="text-gray-500 text-sm mb-8">{course.tagline}</p>
-                
+
                 <ul className="space-y-4 mb-8 flex-grow">
                   {course.features.map((f, i) => (
                     <li key={i} className="flex gap-3 text-sm text-gray-400">
@@ -420,14 +421,14 @@ export default function App() {
       {/* --- Curriculum Breakdown --- */}
       <section id="chương-trình" className="py-24 bg-bg-secondary">
         <div className="container mx-auto px-6">
-          <SectionHeader 
-            label="Chi tiết" 
+          <SectionHeader
+            label="Chi tiết"
             title="Nội Dung Đào Tạo Thực Chiến"
           />
 
           <div className="flex flex-wrap justify-center gap-3 mb-12">
             {curriculumData.map((tab, idx) => (
-              <button 
+              <button
                 key={idx}
                 onClick={() => setActiveTab(idx)}
                 className={`px-8 py-3 rounded-xl text-sm font-bold transition-all border ${activeTab === idx ? 'bg-lime text-black border-lime' : 'bg-bg-card text-gray-400 border-border-subtle hover:border-lime/30'}`}
@@ -439,7 +440,7 @@ export default function App() {
 
           <div className="max-w-3xl mx-auto">
             <AnimatePresence mode="wait">
-              <motion.div 
+              <motion.div
                 key={activeTab}
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
@@ -464,21 +465,21 @@ export default function App() {
         <div className="container mx-auto px-6">
           <div className="flex flex-col lg:flex-row items-center gap-16">
             <div className="flex-shrink-0 w-full max-w-sm">
-              <motion.div 
+              <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 className="relative aspect-[4/5] rounded-3xl overflow-hidden border border-border-subtle group"
               >
-                <img 
-                  src="../instructor.jpg" 
-                  alt="ThS. Đỗ Như Lâm" 
+                <img
+                  src={instructor}
+                  alt="ThS. Đỗ Như Lâm"
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   referrerPolicy="no-referrer"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex flex-col justify-end p-8">
-                   <div className="text-xl font-bold">ThS. Đỗ Như Lâm</div>
-                   <div className="text-lime text-sm font-medium">Chuyên gia AI & Chuyển đổi số</div>
+                  <div className="text-xl font-bold">ThS. Đỗ Như Lâm</div>
+                  <div className="text-lime text-sm font-medium">Chuyên gia AI & Chuyển đổi số</div>
                 </div>
               </motion.div>
             </div>
@@ -508,10 +509,10 @@ export default function App() {
       {/* --- Pricing Table --- */}
       <section id="học-phí" className="py-24 bg-bg-secondary relative overflow-hidden">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-lime/10 rounded-full blur-[150px] pointer-events-none" />
-        
+
         <div className="container mx-auto px-6 relative z-10">
           <SectionHeader label="Học phí" title="Đầu Tư Cho Tương Lai Công Nghệ" desc="Giá ưu đãi có hạn áp dụng cho tháng này." />
-          
+
           <div className="grid lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {/* Plan 1 */}
             <div className="bg-bg-card border border-border-subtle rounded-3xl p-10 flex flex-col hover:border-lime/20 transition-all">
@@ -619,17 +620,17 @@ export default function App() {
         <div className="container mx-auto px-6">
           <SectionHeader label="Giải đáp" title="Câu Hỏi Thường Gặp" />
           <div className="max-w-2xl mx-auto">
-            <FAQItem 
-              question="Tôi hoàn toàn mới với AI, có theo được không?" 
-              answer="Hoàn toàn được. Cả 3 khóa đều thiết kế cho người không chuyên kỹ thuật (No-code). Bạn chỉ cần biết dùng máy tính và internet cơ bản. Mỗi khóa bắt đầu từ Level 1 giải thích từ gốc rễ." 
+            <FAQItem
+              question="Tôi hoàn toàn mới với AI, có theo được không?"
+              answer="Hoàn toàn được. Cả 3 khóa đều thiết kế cho người không chuyên kỹ thuật (No-code). Bạn chỉ cần biết dùng máy tính và internet cơ bản. Mỗi khóa bắt đầu từ Level 1 giải thích từ gốc rễ."
             />
-            <FAQItem 
-              question="Giá ưu đãi áp dụng đến khi nào?" 
-              answer="Giá ưu đãi hiện tại áp dụng cho tháng này. Sau đó giá sẽ trở về mức chính thức (gấp 3-4 lần). Đừng bỏ lỡ cơ hội sở hữu kỹ năng AI với chi phí tối ưu nhất." 
+            <FAQItem
+              question="Giá ưu đãi áp dụng đến khi nào?"
+              answer="Giá ưu đãi hiện tại áp dụng cho tháng này. Sau đó giá sẽ trở về mức chính thức (gấp 3-4 lần). Đừng bỏ lỡ cơ hội sở hữu kỹ năng AI với chi phí tối ưu nhất."
             />
-            <FAQItem 
-              question="Tôi có được hỗ trợ sau khóa học không?" 
-              answer="Có. Bạn sẽ được tham gia cộng đồng học viên AI FOR EVERY ONE để trao đổi kinh nghiệm, cập nhật các Tools mới nhất và được giải đáp thắc mắc liên tục." 
+            <FAQItem
+              question="Tôi có được hỗ trợ sau khóa học không?"
+              answer="Có. Bạn sẽ được tham gia cộng đồng học viên AI FOR EVERY ONE để trao đổi kinh nghiệm, cập nhật các Tools mới nhất và được giải đáp thắc mắc liên tục."
             />
           </div>
         </div>
@@ -639,7 +640,7 @@ export default function App() {
       <section className="py-32 relative overflow-hidden">
         <div className="absolute inset-0 bg-lime/10 blur-[100px] pointer-events-none" />
         <div className="container mx-auto px-6 text-center relative z-10">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
