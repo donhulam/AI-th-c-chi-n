@@ -471,7 +471,7 @@ export default function App() {
                 className="relative aspect-[4/5] rounded-3xl overflow-hidden border border-border-subtle group"
               >
                 <img 
-                  src="/instructor.jpg" 
+                  src="../instructor.jpg" 
                   alt="ThS. Đỗ Như Lâm" 
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   referrerPolicy="no-referrer"
